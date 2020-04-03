@@ -48,7 +48,8 @@ c:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\
  На даний момент створена ресурсана група
  Так що араз створюємо VM_ і прописуємо ResourceGroup
  
- 1. /*
+ 1. Створіть ресурси зберігання
+ /*
  PS C:\Users\user7> $StorageAccountName = "myyyyystorageaccount"
 $SkuName = "Standard_LRS"
 
