@@ -1,4 +1,5 @@
-Створіть програму VM для Windows Server за допомогою PowerShell в Azure Stack Hub
+Створіть програму VM для Windows Server за допомогою
+ PowerShell в Azure Stack Hub
 
 ********Ремарка
 Якщо не встановлюється модуль AzureRM в PowerShell..
@@ -31,14 +32,43 @@ c:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\
 1. Скачав дієву версію POwerShell з робочої станції
 (іншої машини, де все працює).
 2. Скопіював з заміною, в себе на машині.
-3. Надав собі максимальні права доступу командлєтой: "set-executionpolicy remotesigned"
+3. Надав собі максимальні права доступу командлєтой: 
+"set-executionpolicy remotesigned"
 4. Імпортнув Модуль "Import-Module AzureRM.profile"
 5. Законектився))) Connect-AzureRmAccount*/
 ********Ремарка
 
-<<<<<<< HEAD
-jhjdnjnjnd
-=======
 
-klklskldklksldklklslklk
->>>>>>> dev2PowerShell
+
+Створіть програму VM для Windows Server за допомогою
+ PowerShell в Azure Stack Hub
+ 
+ 
+ 
+ На даний момент створена ресурсана група
+ Так що араз створюємо VM_ і прописуємо ResourceGroup
+ 
+ 1. /*
+ PS C:\Users\user7> $StorageAccountName = "myyyyystorageaccount"
+$SkuName = "Standard_LRS"
+
+PS C:\Users\user7> 
+$StorageAccount = New-AzureRMStorageAccount `
+  -Location "Central US" `
+  -ResourceGroupName VMinfrastructure `
+  -Type $SkuName `
+  -Name $StorageAccountName
+
+Set-AzureRmCurrentStorageAccount `
+  -StorageAccountName $storageAccountName `
+  -ResourceGroupName VMinfrastructure
+ */
+ 
+ Питання до Льохи:
+ -де прописувати дані і які.
+ -розібратися SKU Name , StorageAccountName
+ -Все розпитати
+ 
+ 
+ 
+ 
