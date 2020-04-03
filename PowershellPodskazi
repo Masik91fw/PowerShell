@@ -1,3 +1,39 @@
 Створіть програму VM для Windows Server за допомогою PowerShell в Azure Stack Hub
 
-Hv
+********Ремарка
+Якщо не встановлюється модуль AzureRM в PowerShell..
+Рішення:
+
++++Момент_А***
+Якщо видає помилку NuGet Version
+то:
+1. Надати права для користування репозиторієм -PSGallery-
+Командою:
+Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+
+2. Скачати цю потрібну NuGet Version, покласти її в репозиторій:
+c:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\
+  далі зайшовши в cmd в директорию
+c:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\
+  - прописати команду
+  Import-PackageProvider -Name NuGet
+  
+ /*0. NuGet - імпортнув вручну з каталога
+(помилка була в шляху до деректорії...
+треба було щоб скачений NuGet Version *.*.*.***, 
+ лежав в папочці з назвою "NuGet"! NuGet, Карл.*/
+ 
+ +++Момент_Б***
+ НЕ вдається встановити AzureRM Module..
+ борьба не дала мені рятунку, тому зробив наступне:
+
+
+1. Скачав дієву версію POwerShell з робочої станції
+(іншої машини, де все працює).
+2. Скопіював з заміною, в себе на машині.
+3. Надав собі максимальні права доступу командлєтой: "set-executionpolicy remotesigned"
+4. Імпортнув Модуль "Import-Module AzureRM.profile"
+5. Законектився))) Connect-AzureRmAccount*/
+********Ремарка
+
+
