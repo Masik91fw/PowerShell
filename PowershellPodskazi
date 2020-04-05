@@ -71,5 +71,35 @@ Set-AzureRmCurrentStorageAccount `
  -Все розпитати
  
  
+ 2. Створюйте мережеві ресурси
+ # Create a subnet configuration
+>> $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+>>   -Name ADSubnet `
+>>   -AddressPrefix 192.168.1.0/24
+>>
+>> # Create a virtual network
+>> $vnet = New-AzureRmVirtualNetwork `
+>>   -ResourceGroupName VMinfrastructure `
+>>   -Location "Central US" `
+>>   -Name ADVnet `
+>>   -AddressPrefix 192.168.0.0/16 `
+>>   -Subnet $subnetConfig
+>>
+>> # Create a public IP address and specify a DNS name
+>> $pip = New-AzureRmPublicIpAddress `
+>>   -ResourceGroupName VMinfrastructure `
+>>   -Location "Central US" `
+>>   -AllocationMethod Static `
+>>   -IdleTimeoutInMinutes 4 `
+>>   -Name "mypublicdns$(Get-Random)"
+
+Питання до Льохи
+
+ПРЕДУПРЕЖДЕНИЕ: Breaking changes in the cmdlet 'New-AzureRmVirtualNetwork' :
+ПРЕДУПРЕЖДЕНИЕ:  - "The output type 'Microsoft.Azure.Commands.Network.Models.PSVirtualNetwork' is changing"
+ - The following properties in the output type are being deprecated :
+ 'EnableVmProtection'
  
+ 
+ 3. Створіть групу безпеки мережі та правило групи захисту мережі
  
