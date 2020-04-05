@@ -133,3 +133,14 @@ Set-AzureRmCurrentStorageAccount `
 >>   -Location "Central US" `
 >>   -Name myNetworkSecurityGroup `
 >>   -SecurityRules $nsgRuleRDP,$nsgRuleWeb
+
+4. Створіть мережеву карту для VM
+
+ # Create a virtual network card and associate it with public IP address and NSG
+>> $nic = New-AzureRmNetworkInterface `
+>>   -Name myNic `
+>>   -ResourceGroupName VMinfrastructure `
+>>   -Location "Central US" `
+>>   -SubnetId $vnet.Subnets[0].Id `
+>>   -PublicIpAddressId $pip.Id `
+>>   -NetworkSecurityGroupId $nsg.Id
